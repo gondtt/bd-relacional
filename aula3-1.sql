@@ -1,5 +1,5 @@
 CREATE TABLE usuarios (
-  id INT,
+  id INT, /* Permite valores nulos propositalmente, mesmo sendo ID, para permitir um selectprompt que retorne espaços sem "registro". E isso se repete ao longo dos ID's do projeto.*/
   nome VARCHAR(255) NOT NULL COMMENT 'Nome do usuário',
   email VARCHAR(255) NOT NULL UNIQUE COMMENT 'Endereço de e-mail do usuário',
   data_nascimento DATE NOT NULL COMMENT 'Data de nascimento do usuário',
@@ -51,7 +51,7 @@ SELECT * FROM usuarios WHERE nome = 'João Silva';
 SELECT * FROM usuarios WHERE data_nascimento < '1990-01-01';
 
 -- Like
-SELECT * FROM usuarios WHERE nome LIKE '%Silva%';
+SELECT * FROM usuarios WHERE nome LIKE '%Silva%'; /* Basta ter "silva" em qualquer lugar.*/
 SELECT * FROM usuarios WHERE nome LIKE 'Jo_o%';
 
 -- Update --
